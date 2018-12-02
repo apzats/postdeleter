@@ -1,16 +1,17 @@
 function searcher() {
-	var arrPosts = $(".feed_row:has(a[href=\"/thevillage\"])");
+	var groupId = localStorage.getItem('groupId');
+	var arrPosts = $(".feed_row:has(a[href=\""+groupId+"\"])");
 	Array.prototype.forEach.call(arrPosts, function(entry) {
 		var textPost = ($(entry).text());
-		var stopWords = ["можно", "час", "сексист", "Wonderzine", "Вондерзин"];
+		var stopWords = localStorage.setItem('???');
 		stopWords.forEach(function(item) {
 			var foundPos = textPost.indexOf(item);
 			if (foundPos === -1) {
 				return;
 			}
-			// console.log(foundPos);
-			localStorage.setItem("postKey","entry");
-			var value = localStorage.getItem("postKey");
+			var postKey=(+new Date()+ "8");
+			localStorage.setItem(postKey,textPost);
+			var value = localStorage.getItem(postKey);
 			console.log(value);
 			alert("I will destroy it!");
 			entry.remove();
