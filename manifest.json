@@ -1,15 +1,21 @@
 {
   "manifest_version": 2,
-
-  "name": "Удалитель новостей",
-  "description": "Позволяет нам удалить неугодные новости из ленты.",
+  "name": "Settings example",
   "version": "1.0",
-
   "content_scripts": [
     {
-      "matches": ["*://vk.com/feed*"],
-      "js": ["jquery-3.3.1.min.js","vk_inject.js"],
-      "css": ["vk_styles.css"]
+      "js": ["options.js", "vk_inject.js"],
+      "html": ["options.html"]
+      
     }
-  ]
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": ["storage"],
+  "applications": {
+    "gecko": {
+      "id": "addon@example.com"
+    }
+  }
 }
